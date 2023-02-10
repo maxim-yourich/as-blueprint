@@ -1,5 +1,6 @@
 import com.bluep.config.ConfigManager;
 import com.bluep.config.Configuration;
+import com.bluep.constants.Env;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -22,7 +23,10 @@ public class BaseTest {
         Map<String, String> envMap = System.getenv();
 
         for (String envName : envMap.keySet()) {
-            System.out.format("%s = %s%n", envName, envMap.get(envName));
+            if (envName.equals("JENKINS_HOME")) {
+                Env.isJenkinsEnv = true;
+                break;
+            }
         }
     }
 
