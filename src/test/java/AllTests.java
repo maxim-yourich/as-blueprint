@@ -9,8 +9,7 @@ import java.util.HashMap;
 
 import static com.bluep.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE;
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AllTests extends BaseTest {
     Function function = new Function();
@@ -37,5 +36,10 @@ public class AllTests extends BaseTest {
     @Test
     void disabledTest() {
         assertTrue(true);
+    }
+
+    @Test
+    void failedTest() {
+        fail();
     }
 }
