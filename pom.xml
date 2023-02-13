@@ -18,6 +18,10 @@
         <org.aeonbits.owner.version>1.0.12</org.aeonbits.owner.version>
         <junit.version>5.9.2</junit.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+        <allure.version>2.20.1</allure.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <aspectj.version>1.9.19</aspectj.version>
+        <junit-platform-surefire-provider.version>1.2.0</junit-platform-surefire-provider.version>
     </properties>
 
     <dependencyManagement>
@@ -69,6 +73,12 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -83,7 +93,29 @@
                         <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
                         <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
                     </systemPropertyVariables>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>junit.jupiter.extensions.autodetection.enabled</name>
+                            <value>true</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
             </plugin>
         </plugins>
     </build>
