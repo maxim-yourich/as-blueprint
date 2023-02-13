@@ -1,5 +1,6 @@
 import com.bluep.Function;
 import com.bluep.managers.FileManager;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import static com.bluep.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AllTests extends BaseTest {
     Function function = new Function();
@@ -29,5 +31,11 @@ public class AllTests extends BaseTest {
 
         String actualJSON = given().queryParams(queryParams).when().get(pokeAPI.pokemonList()).asString();
         assertEquals(expectedJSON, actualJSON);
+    }
+
+    @Disabled
+    @Test
+    void disabledTest() {
+        assertTrue(true);
     }
 }
