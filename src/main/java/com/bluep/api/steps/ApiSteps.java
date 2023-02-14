@@ -1,4 +1,4 @@
-package api.steps;
+package com.bluep.api.steps;
 
 import com.bluep.api.PokeAPI;
 

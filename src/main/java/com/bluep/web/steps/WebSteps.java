@@ -1,4 +1,4 @@
-package web.steps;
+package com.bluep.web.steps;
 
 import com.bluep.web.Google;
 import org.openqa.selenium.remote.RemoteWebDriver;
