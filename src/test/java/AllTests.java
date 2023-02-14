@@ -39,6 +39,18 @@ public class AllTests extends BaseTest {
         );
     }
 
+    @Test
+    @DisplayName("Selenium Test 2")
+    public void seleniumTest2(WebSteps webSteps) {
+        seleniumExecution(
+                () -> {
+                    webSteps.openGoogle();
+                    assertEquals("https://www.bing.com/", webSteps.getDriver().getCurrentUrl());
+                },
+                webSteps.getDriver()
+        );
+    }
+
     @ParameterizedTest
     @CsvFileSource(resources = "data/common/dev-feature-data.csv", numLinesToSkip = 1)
     @DisplayName("Dev Feature Test")
