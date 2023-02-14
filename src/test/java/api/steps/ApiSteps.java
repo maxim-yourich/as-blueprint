@@ -1,6 +1,8 @@
+package api.steps;
+
 import com.bluep.api.PokeAPI;
 
-public class AllSteps {
+public class ApiSteps {
     private final PokeAPI pokeAPI = new PokeAPI();
 
     public String getPokes() {

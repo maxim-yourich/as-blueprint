@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "system:properties",
         "classpath:pokeAPI.properties"})
-public interface Configuration extends Config {
+public interface ConfigPokeAPI extends Config {
 
     @Key("api.base.path")
     String basePath();

@@ -1,7 +1,7 @@
 package com.bluep.api;
 
 import com.bluep.config.ConfigManager;
-import com.bluep.config.Configuration;
+import com.bluep.config.ConfigPokeAPI;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -10,12 +10,12 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
 public class PokeAPI {
-    Configuration pokeAPI;
+    ConfigPokeAPI pokeAPI;
     RequestSpecification request;
 
     public PokeAPI() {
         this.request = given();
-        this.pokeAPI = ConfigManager.getConfiguration();
+        this.pokeAPI = ConfigManager.getPokeApiConfiguration();
 
         this.request.baseUri(this.pokeAPI.baseURI());
         this.request.basePath(this.pokeAPI.basePath());

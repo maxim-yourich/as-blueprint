@@ -12,9 +12,11 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <io.rest-assured.version>5.3.0</io.rest-assured.version>
         <net.datafaker.version>1.7.0</net.datafaker.version>
         <org.aeonbits.owner.version>1.0.12</org.aeonbits.owner.version>
+        <io.rest-assured.version>5.3.0</io.rest-assured.version>
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.6.2</webdrivermanager.version>
         <junit.version>5.9.2</junit.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
         <allure-junit5.version>2.21.0</allure-junit5.version>
@@ -53,6 +55,27 @@
             <artifactId>json-schema-validator</artifactId>
             <version>${io.rest-assured.version}</version>
         </dependency>
+        <!--     Selenium     -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
         <!--     ServiceCaller     -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -63,6 +86,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+        <!--     Selenium     -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
         </dependency>
         <!--     MainTestingFramework     -->
         <dependency>
