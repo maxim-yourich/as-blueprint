@@ -1,6 +1,5 @@
-import com.bluep.api.steps.ApiSteps;
-import com.bluep.api.steps.ApiStepsParamResolver;
-import com.bluep.managers.FileManager;
+import com.bluep.sut.api.steps.ApiSteps;
+import com.bluep.sut.api.steps.ApiStepsParamResolver;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,10 +7,10 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.time.Duration;
 
-import static com.bluep.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION;
+import static com.bluep.bricks.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -24,7 +23,7 @@ public class ApiTests extends BaseTest {
     public void apiPokemonListTest(ApiSteps apiSteps) throws IOException {
         String actualJSON = apiSteps.getPokes();
 
-        String expectedJSON = FileManager.readFile(POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION, StandardCharsets.UTF_8);
+        String expectedJSON = Files.readString(POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION);
         expectedJSON = expectedJSON.replaceAll("\\s", "");
 
         assumeTrue(actualJSON != null, "Response code is not 200");

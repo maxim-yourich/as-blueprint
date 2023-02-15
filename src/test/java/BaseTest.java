@@ -1,5 +1,5 @@
-import com.bluep.constants.Env;
-import com.bluep.lib.TestResultCollector;
+import com.bluep.bricks.constants.Env;
+import com.bluep.bricks.managers.TestResultCollector;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +17,7 @@ public class BaseTest {
 
         for (String envName : envMap.keySet()) {
             if (envName.equals("JENKINS_HOME")) {
-                Env.isJenkinsEnv = true;
+                Env.IS_JENKINS_ENV = true;
                 break;
             }
         }

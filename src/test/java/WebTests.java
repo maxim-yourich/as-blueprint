@@ -1,12 +1,12 @@
-import com.bluep.web.steps.WebSteps;
-import com.bluep.web.steps.WebStepsParamResolver;
+import com.bluep.sut.web.steps.WebSteps;
+import com.bluep.sut.web.steps.WebStepsParamResolver;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
-import static com.bluep.managers.SeleniumManager.seleniumExecution;
+import static com.bluep.bricks.managers.SeleniumManager.seleniumExecution;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Execution(ExecutionMode.CONCURRENT)
