@@ -19,25 +19,25 @@ public class TestResultCollector implements TestWatcher, AfterAllCallback {
 
     @Override
     public void testDisabled(ExtensionContext context, Optional<String> reason) {
-        GLog.logFormatInfo("Test Disabled. Test name - %s. Reason - %s.", context.getDisplayName(), reason.orElse("No reason"));
+        GLogger.logFormatInfo("Test Disabled. Test name - %s. Reason - %s.", context.getDisplayName(), reason.orElse("No reason"));
         testResultsStatus.add(TestResultStatus.DISABLED);
     }
 
     @Override
     public void testSuccessful(ExtensionContext context) {
-        GLog.logFormatInfo("Test Successful. Test name - %s.", context.getDisplayName());
+        GLogger.logFormatInfo("Test Successful. Test name - %s.", context.getDisplayName());
         testResultsStatus.add(TestResultStatus.SUCCESSFUL);
     }
 
     @Override
     public void testAborted(ExtensionContext context, Throwable cause) {
-        GLog.logFormatInfo("Test Aborted. Test name - %s.", context.getDisplayName());
+        GLogger.logFormatInfo("Test Aborted. Test name - %s.", context.getDisplayName());
         testResultsStatus.add(TestResultStatus.ABORTED);
     }
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
-        GLog.logFormatInfo("Test Failed. Test name - %s.", context.getDisplayName());
+        GLogger.logFormatInfo("Test Failed. Test name - %s.", context.getDisplayName());
         testResultsStatus.add(TestResultStatus.FAILED);
     }
 
@@ -46,6 +46,6 @@ public class TestResultCollector implements TestWatcher, AfterAllCallback {
         Map<TestResultStatus, Long> summary = testResultsStatus.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        GLog.logFormatInfo("Test result summary for %s %s", context.getDisplayName(), summary.toString());
+        GLogger.logFormatInfo("Test result summary for %s %s", context.getDisplayName(), summary.toString());
     }
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
-import static com.bluep.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE;
+import static com.bluep.constants.FileLocations.POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -24,7 +24,7 @@ public class ApiTests extends BaseTest {
     public void apiPokemonListTest(ApiSteps apiSteps) throws IOException {
         String actualJSON = apiSteps.getPokes();
 
-        String expectedJSON = FileManager.readFile(POKEMON_LIST_EXPECTED_RESULT_FILE, StandardCharsets.UTF_8);
+        String expectedJSON = FileManager.readFile(POKEMON_LIST_EXPECTED_RESULT_FILE_LOCATION, StandardCharsets.UTF_8);
         expectedJSON = expectedJSON.replaceAll("\\s", "");
 
         assumeTrue(actualJSON != null, "Response code is not 200");

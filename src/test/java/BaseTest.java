@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.io.IOException;
 import java.util.Map;
 
-import static com.bluep.lib.GLog.logInfo;
+import static com.bluep.lib.GLogger.logInfo;
 
 @ExtendWith(TestResultCollector.class)
 public class BaseTest {

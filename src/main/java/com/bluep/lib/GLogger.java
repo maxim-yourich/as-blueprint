@@ -4,7 +4,7 @@ import java.util.Formatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GLog {
+public class GLogger {
     private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void logInfo(String msg) {
@@ -14,6 +14,6 @@ public class GLog {
     public static void logFormatInfo(String msg, Object... replacements) {
         String msgFormatted = new Formatter().format(msg, replacements).toString();
 
-        GLog.logInfo(msgFormatted);
+        GLogger.logInfo(msgFormatted);
     }
 }
