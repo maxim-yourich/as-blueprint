@@ -141,6 +141,9 @@
                         <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
                     </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <excludes>
+                        <exclude>**/BaseTest.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
